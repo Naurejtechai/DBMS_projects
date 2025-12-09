@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - SHAHARSH ECOM STORE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f3f7;
+            margin: 0;
+        }
+        .navbar {
+            background-color: #0f1111;
+            color: white;
+            padding: 15px 30px;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .container {
+            margin: 40px auto;
+            width: 350px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        .flash {
+            background-color: #ffe6e6;
+            color: #990000;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9900;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e68a00;
+        }
+        .links {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .links a {
+            color: #0073e6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>SHAHARSH ECOM STORE - Login</h1>
+</div>
+
+<div class="container">
+    <h2>Login</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="flash">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="links">
+        <a href="/register">New user? Register here</a>
+    </div>
+</div>
+
+</body>
+</html>

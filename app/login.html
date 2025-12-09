@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login – BuyHaven</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            background: #f5f6fb;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-box {
+            background: white;
+            padding: 30px 38px;
+            width: 360px;
+            border-radius: 18px;
+            box-shadow: 0 12px 28px rgba(15,23,42,.18);
+        }
+        h2 {
+            margin: 0 0 10px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 26px;
+        }
+        .input-group { margin-bottom: 16px; }
+        label {
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+        }
+        button {
+            width: 100%;
+            background: #f97316;
+            padding: 12px;
+            margin-top: 4px;
+            border: none;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            color: white;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+        button:hover { background: #ea580c; }
+        .footer-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        a { color: #f97316; }
+        .flash {
+            background:#fee2e2;
+            padding:10px;
+            border-radius:8px;
+            color:#b91c1c;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h2>Login</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="flash">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Login 🔑</button>
+    </form>
+
+    <div class="footer-text">
+        New user? <a href="{{ url_for('register') }}">Create an account</a>
+    </div>
+</div>
+</body>
+</html>
